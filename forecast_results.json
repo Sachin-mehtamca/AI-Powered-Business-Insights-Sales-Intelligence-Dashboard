@@ -1,0 +1,213 @@
+{
+    "evaluation_metrics": {
+        "Linear Regression": {
+            "MAE": 13885.71,
+            "RMSE": 17451.43,
+            "R2": 0.2474
+        },
+        "Random Forest": {
+            "MAE": 16901.17,
+            "RMSE": 20306.72,
+            "R2": -0.019
+        }
+    },
+    "historical_sales": [
+        {
+            "Month": "2024-03",
+            "Sales": 44655.41,
+            "Profit": 5904.64
+        },
+        {
+            "Month": "2024-04",
+            "Sales": 69574.73,
+            "Profit": 10117.26
+        },
+        {
+            "Month": "2024-05",
+            "Sales": 51399.12,
+            "Profit": 7315.44
+        },
+        {
+            "Month": "2024-06",
+            "Sales": 95709.64,
+            "Profit": 13307.64
+        },
+        {
+            "Month": "2024-07",
+            "Sales": 62360.99,
+            "Profit": 7998.95
+        },
+        {
+            "Month": "2024-08",
+            "Sales": 75486.88,
+            "Profit": 8764.13
+        },
+        {
+            "Month": "2024-09",
+            "Sales": 72749.89,
+            "Profit": 10830.8
+        },
+        {
+            "Month": "2024-10",
+            "Sales": 78077.15,
+            "Profit": 8991.42
+        },
+        {
+            "Month": "2024-11",
+            "Sales": 93454.14,
+            "Profit": 12751.75
+        },
+        {
+            "Month": "2024-12",
+            "Sales": 73506.71,
+            "Profit": 10675.61
+        },
+        {
+            "Month": "2025-01",
+            "Sales": 40159.51,
+            "Profit": 5280.98
+        },
+        {
+            "Month": "2025-02",
+            "Sales": 66477.82,
+            "Profit": 8000.46
+        },
+        {
+            "Month": "2025-03",
+            "Sales": 42085.34,
+            "Profit": 6468.6
+        },
+        {
+            "Month": "2025-04",
+            "Sales": 52348.53,
+            "Profit": 6269.42
+        },
+        {
+            "Month": "2025-05",
+            "Sales": 60863.49,
+            "Profit": 8372.3
+        },
+        {
+            "Month": "2025-06",
+            "Sales": 68836.25,
+            "Profit": 7182.7
+        },
+        {
+            "Month": "2025-07",
+            "Sales": 86576.7,
+            "Profit": 10576.98
+        },
+        {
+            "Month": "2025-08",
+            "Sales": 65274.99,
+            "Profit": 8479.4
+        },
+        {
+            "Month": "2025-09",
+            "Sales": 78028.76,
+            "Profit": 10166.57
+        },
+        {
+            "Month": "2025-10",
+            "Sales": 74734.85,
+            "Profit": 9099.36
+        },
+        {
+            "Month": "2025-11",
+            "Sales": 102041.61,
+            "Profit": 11009.37
+        },
+        {
+            "Month": "2025-12",
+            "Sales": 91029.57,
+            "Profit": 11600.24
+        },
+        {
+            "Month": "2026-01",
+            "Sales": 87894.33,
+            "Profit": 9250.74
+        },
+        {
+            "Month": "2026-02",
+            "Sales": 28803.26,
+            "Profit": 4393.23
+        },
+        {
+            "Month": "2026-03",
+            "Sales": 71282.38,
+            "Profit": 10543.69
+        },
+        {
+            "Month": "2026-04",
+            "Sales": 56738.62,
+            "Profit": 6747.78
+        },
+        {
+            "Month": "2026-05",
+            "Sales": 74393.46,
+            "Profit": 8702.47
+        }
+    ],
+    "forecast_12_months": [
+        {
+            "Month": "2026-06",
+            "Linear_Regression_Forecast": 69337.19,
+            "Random_Forest_Forecast": 80450.76
+        },
+        {
+            "Month": "2026-07",
+            "Linear_Regression_Forecast": 77212.89,
+            "Random_Forest_Forecast": 86846.4
+        },
+        {
+            "Month": "2026-08",
+            "Linear_Regression_Forecast": 83793.09,
+            "Random_Forest_Forecast": 75996.62
+        },
+        {
+            "Month": "2026-09",
+            "Linear_Regression_Forecast": 92170.61,
+            "Random_Forest_Forecast": 80100.79
+        },
+        {
+            "Month": "2026-10",
+            "Linear_Regression_Forecast": 91502.43,
+            "Random_Forest_Forecast": 81425.33
+        },
+        {
+            "Month": "2026-11",
+            "Linear_Regression_Forecast": 87170.43,
+            "Random_Forest_Forecast": 89885.12
+        },
+        {
+            "Month": "2026-12",
+            "Linear_Regression_Forecast": 77300.98,
+            "Random_Forest_Forecast": 84812.76
+        },
+        {
+            "Month": "2027-01",
+            "Linear_Regression_Forecast": 70109.75,
+            "Random_Forest_Forecast": 60850.13
+        },
+        {
+            "Month": "2027-02",
+            "Linear_Regression_Forecast": 69449.32,
+            "Random_Forest_Forecast": 53548.26
+        },
+        {
+            "Month": "2027-03",
+            "Linear_Regression_Forecast": 67017.47,
+            "Random_Forest_Forecast": 60093.42
+        },
+        {
+            "Month": "2027-04",
+            "Linear_Regression_Forecast": 65193.65,
+            "Random_Forest_Forecast": 57500.48
+        },
+        {
+            "Month": "2027-05",
+            "Linear_Regression_Forecast": 70748.8,
+            "Random_Forest_Forecast": 65225.83
+        }
+    ]
+}

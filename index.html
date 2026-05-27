@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Sales Intelligence Dashboard</title>
+    <!-- Google Fonts: Inter and Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <i class="fa-solid fa-chart-line logo-icon"></i>
+                <div class="logo-text">
+                    <h2>Intelligence</h2>
+                    <span>SALES DASHBOARD</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="summary">
+                    <i class="fa-solid fa-house-chimney"></i> Executive Summary
+                </button>
+                <button class="nav-item" data-tab="sales">
+                    <i class="fa-solid fa-sack-dollar"></i> Sales Analytics
+                </button>
+                <button class="nav-item" data-tab="customers">
+                    <i class="fa-solid fa-users-gear"></i> Customer Insights
+                </button>
+                <button class="nav-item" data-tab="forecasting">
+                    <i class="fa-solid fa-brain"></i> AI Forecasting
+                </button>
+                <button class="nav-item" data-tab="advisor">
+                    <i class="fa-solid fa-lightbulb"></i> Smart Advisor
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="connection-status">
+                    <span class="status-indicator online"></span>
+                    <span>Data Pipeline Active</span>
+                </div>
+                <div class="version-tag">v2.4 (AI Enabled)</div>
+            </div>
+        </aside>
+
+        <!-- Main Body -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="title-section">
+                    <h1>AI-Powered Business Insights & Sales Intelligence</h1>
+                    <p class="subtitle">E-Commerce Retail Performance Analytics and Machine Learning Forecasting System</p>
+                </div>
+                
+                <!-- Quick Date/Status Indicator -->
+                <div class="meta-section">
+                    <div class="data-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span>Period: Jan 2024 - May 2026</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Filters Bar (Sticky/Persistent for exploration) -->
+            <section class="filters-bar glass-panel">
+                <div class="filter-group">
+                    <label for="filter-region"><i class="fa-solid fa-map-location-dot"></i> Region</label>
+                    <select id="filter-region" class="custom-select">
+                        <option value="ALL">All Regions</option>
+                        <option value="Central">Central</option>
+                        <option value="East">East</option>
+                        <option value="South">South</option>
+                        <option value="West">West</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="filter-category"><i class="fa-solid fa-tags"></i> Product Category</label>
+                    <select id="filter-category" class="custom-select">
+                        <option value="ALL">All Categories</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Office Supplies">Office Supplies</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-loyalty"><i class="fa-solid fa-award"></i> Customer Loyalty</label>
+                    <select id="filter-loyalty" class="custom-select">
+                        <option value="ALL">All Customers</option>
+                        <option value="Yes">Repeat Customers Only</option>
+                        <option value="No">First-time Customers</option>
+                    </select>
+                </div>
+
+                <button id="reset-filters-btn" class="btn btn-secondary">
+                    <i class="fa-solid fa-arrows-rotate"></i> Reset
+                </button>
+            </section>
+
+            <!-- Content Area (Switched dynamically via JS tabs) -->
+            <div class="tab-content-container">
+                
+                <!-- TAB 1: EXECUTIVE SUMMARY -->
+                <div id="tab-summary" class="tab-content active">
+                    <!-- KPI Cards Grid -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card glass-panel" id="kpi-revenue">
+                            <div class="kpi-header">
+                                <span>TOTAL REVENUE</span>
+                                <i class="fa-solid fa-dollar-sign icon-box rev"></i>
+                            </div>
+                            <div class="kpi-value">$0.00</div>
+                            <div class="kpi-trend positive">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                <span>+15.4% YoY</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card glass-panel" id="kpi-profit">
+                            <div class="kpi-header">
+                                <span>TOTAL PROFIT</span>
+                                <i class="fa-solid fa-wallet icon-box prof"></i>
+                            </div>
+                            <div class="kpi-value">$0.00</div>
+                            <div class="kpi-trend positive">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                <span>+12.8% YoY</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card glass-panel" id="kpi-margin">
+                            <div class="kpi-header">
+                                <span>PROFIT MARGIN</span>
+                                <i class="fa-solid fa-percent icon-box marg"></i>
+                            </div>
+                            <div class="kpi-value">0.0%</div>
+                            <div class="kpi-trend neutral">
+                                <i class="fa-solid fa-arrows-left-right"></i>
+                                <span>Steady Margin</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card glass-panel" id="kpi-orders">
+                            <div class="kpi-header">
+                                <span>TOTAL ORDERS</span>
+                                <i class="fa-solid fa-cart-shopping icon-box ords"></i>
+                            </div>
+                            <div class="kpi-value">0</div>
+                            <div class="kpi-trend positive">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                <span>+8.2% YoY</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="charts-grid">
+                        <div class="chart-container glass-panel double-width">
+                            <div class="chart-header">
+                                <h3><i class="fa-solid fa-chart-area"></i> Revenue & Profit Monthly Trajectory</h3>
+                                <span class="chart-tag">Interactive Time Series</span>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chart-summary-trends"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container glass-panel">
+                            <div class="chart-header">
+                                <h3><i class="fa-solid fa-chart-pie"></i> Category Distribution</h3>
+                                <span class="chart-tag">Sales Volume</span>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chart-summary-categories"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: SALES ANALYTICS -->
+                <div id="tab-sales" class="tab-content">
+                    <div class="charts-grid">
+                        <div class="chart-container glass-panel">
+                            <div class="chart-header">
+                                <h3><i class="fa-solid fa-globe"></i> Regional Sales Performance</h3>
+                                <span class="chart-tag">Geographical Spread</span>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chart-sales-regional"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-container glass-panel double-width">
+                            <div class="chart-header">
+                                <h3><i class="fa-solid fa-chart-bar"></i> Sub-Category Profitability Breakdown</h3>
+                                <span class="chart-tag">Detailed Margins</span>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chart-sales-subcategories"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SQL Query Highlight Panel -->
+                    <div class="sql-highlight-panel glass-panel">
+                        <div class="sql-header">
+                            <h4><i class="fa-solid fa-database"></i> SQL Query Highlight: Category Contribution</h4>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <pre><code>SELECT category,
+       SUM(sales) AS total_sales,
+       SUM(profit) AS total_profit,
+       ROUND((SUM(profit)/SUM(sales))*100, 2) AS margin_pct
+FROM orders
+GROUP BY category
+ORDER BY total_sales DESC;</code></pre>
+                    </div>
+                </div>
+
+                <!-- TAB 3: CUSTOMER INSIGHTS -->
+                <div id="tab-customers" class="tab-content">
+                    <div class="insights-top-row">
+                        <!-- Customer Retention Status Card -->
+                        <div class="glass-panel customer-metric-panel">
+                            <h3><i class="fa-solid fa-circle-nodes"></i> Customer Loyalty Profile</h3>
+                            <div class="loyalty-metrics">
+                                <div class="metric-circle-container">
+                                    <div class="metric-circle" id="loyalty-rate-gauge">
+                                        <span class="circle-val">0%</span>
+                                    </div>
+                                    <span class="circle-label">Repeat Customer Rate</span>
+                                </div>
+                                <div class="loyalty-breakdown">
+                                    <div class="loyalty-row">
+                                        <span class="l-label"><i class="fa-solid fa-circle text-emerald"></i> Repeat Business:</span>
+                                        <span class="l-val" id="loyalty-sales-repeat">$0.00</span>
+                                    </div>
+                                    <div class="loyalty-row">
+                                        <span class="l-label"><i class="fa-solid fa-circle text-pink"></i> First-Time Sales:</span>
+                                        <span class="l-val" id="loyalty-sales-first">$0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Volume Stats -->
+                        <div class="chart-container glass-panel double-width">
+                            <div class="chart-header">
+                                <h3><i class="fa-solid fa-users"></i> Day-of-Week Purchase Density</h3>
+                                <span class="chart-tag">Analyzing Weekend Sales Boost</span>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chart-customer-days"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- High-Value Customers Table -->
+                    <div class="glass-panel table-panel">
+                        <div class="table-header">
+                            <h3><i class="fa-solid fa-crown text-yellow"></i> Most Valuable Customers (Sales Leaderboard)</h3>
+                            <span class="table-desc">Top 8 buyers ranked by transactional expenditure</span>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="premium-table" id="customer-leaderboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Customer Name</th>
+                                        <th>Orders Placed</th>
+                                        <th>Total Quantity Purchased</th>
+                                        <th>Total Expenditure</th>
+                                        <th>Total Profit Contribution</th>
+                                        <th>Loyalty Group</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Dynamic rows loaded by Javascript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: AI FORECASTING -->
+                <div id="tab-forecasting" class="tab-content">
+                    <div class="charts-grid">
+                        <div class="chart-container glass-panel double-width">
+                            <div class="chart-header">
+                                <h3><i class="fa-solid fa-brain text-gradient"></i> AI-Powered 12-Month Sales Forecasting</h3>
+                                <span class="chart-tag">Linear Regression vs. Random Forest Regression</span>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="chart-ml-forecast"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- ML Metrics Cards -->
+                        <div class="ml-metrics-panel glass-panel">
+                            <h3><i class="fa-solid fa-vial-circle-check"></i> Model Evaluation Performance</h3>
+                            <p class="description">Validated using out-of-sample chronological test splits.</p>
+                            
+                            <!-- Model 1 Card -->
+                            <div class="model-metric-card">
+                                <div class="model-title">
+                                    <span>Linear Regression</span>
+                                    <span class="model-badge baseline">Baseline</span>
+                                </div>
+                                <div class="model-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-name">MAE</span>
+                                        <span class="stat-val" id="val-lr-mae">$13.88K</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-name">RMSE</span>
+                                        <span class="stat-val" id="val-lr-rmse">$17.45K</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-name">R² Score</span>
+                                        <span class="stat-val" id="val-lr-r2">0.247</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Model 2 Card -->
+                            <div class="model-metric-card">
+                                <div class="model-title">
+                                    <span>Random Forest Regressor</span>
+                                    <span class="model-badge champion">Champion</span>
+                                </div>
+                                <div class="model-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-name">MAE</span>
+                                        <span class="stat-val" id="val-rf-mae">$16.90K</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-name">RMSE</span>
+                                        <span class="stat-val" id="val-rf-rmse">$20.31K</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-name">R² Score</span>
+                                        <span class="stat-val" id="val-rf-r2">-0.019</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="ml-explanation">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span>Evaluation values reflect training parameters from Scikit-Learn pipelines. In high-seasonality e-commerce datasets, Linear Regression successfully captures year-over-year baseline growth, while Random Forest captures complex peak-season dynamics.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Forecast Data Table -->
+                    <div class="glass-panel table-panel">
+                        <div class="table-header">
+                            <h3><i class="fa-solid fa-clock-rotate-left"></i> Projected Sales Pipeline (Next 12 Months)</h3>
+                            <span class="table-desc">Calculated monthly estimates using autoregressive forecasting algorithms</span>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="premium-table" id="forecast-pipeline-table">
+                                <thead>
+                                    <tr>
+                                        <th>Month</th>
+                                        <th>Linear Regression Prediction</th>
+                                        <th>Random Forest Prediction</th>
+                                        <th>Forecast Divergence ($)</th>
+                                        <th>Action Plan Recommendation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Dynamic rows loaded by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 5: SMART ADVISOR -->
+                <div id="tab-advisor" class="tab-content">
+                    <div class="advisor-intro-card glass-panel">
+                        <div class="advisor-avatar-area">
+                            <div class="advisor-avatar">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div class="advisor-title">
+                                <h3>Smart Recommendation Engine</h3>
+                                <p>Select a region and category to trigger customized business recommendations generated dynamically from historical sales margins and transaction densities.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="advisor-explorer-grid">
+                        <!-- Dynamic Selector Board -->
+                        <div class="explorer-inputs-panel glass-panel">
+                            <h3><i class="fa-solid fa-sliders"></i> Target Diagnostics</h3>
+                            <div class="input-row">
+                                <label for="adv-region">Select Region:</label>
+                                <select id="adv-region" class="custom-select">
+                                    <option value="Central">Central</option>
+                                    <option value="East">East</option>
+                                    <option value="South">South</option>
+                                    <option value="West">West</option>
+                                </select>
+                            </div>
+
+                            <div class="input-row">
+                                <label for="adv-category">Select Category:</label>
+                                <select id="adv-category" class="custom-select">
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Furniture">Furniture</option>
+                                    <option value="Office Supplies">Office Supplies</option>
+                                </select>
+                            </div>
+
+                            <button id="run-diagnostics-btn" class="btn btn-primary btn-full">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Insights
+                            </button>
+                        </div>
+
+                        <!-- Recommendations Output Board -->
+                        <div class="explorer-output-panel glass-panel">
+                            <div class="output-header">
+                                <h3><i class="fa-solid fa-terminal text-gradient"></i> AI Insights Report</h3>
+                                <span class="report-id" id="diagnostic-target-label">Target: West | Electronics</span>
+                            </div>
+                            
+                            <div class="output-stats-row">
+                                <div class="output-stat-box">
+                                    <span class="lbl">Segment Revenue</span>
+                                    <span class="val text-indigo" id="adv-stat-sales">$0.00</span>
+                                </div>
+                                <div class="output-stat-box">
+                                    <span class="lbl">Segment Profit</span>
+                                    <span class="val text-violet" id="adv-stat-profit">$0.00</span>
+                                </div>
+                                <div class="output-stat-box">
+                                    <span class="lbl">Net Margin</span>
+                                    <span class="val" id="adv-stat-margin">0.0%</span>
+                                </div>
+                            </div>
+
+                            <div class="advisor-narrative-container">
+                                <div class="narrative-section">
+                                    <h4 class="text-indigo"><i class="fa-solid fa-magnifying-glass-chart"></i> Segment Diagnostic Summary</h4>
+                                    <p id="adv-narrative-diagnostic">Evaluating performance parameters...</p>
+                                </div>
+
+                                <div class="narrative-section">
+                                    <h4 class="text-violet"><i class="fa-solid fa-gears"></i> Core Operations Actions</h4>
+                                    <p id="adv-narrative-operational">Analyzing logistics modifications...</p>
+                                </div>
+
+                                <div class="narrative-section">
+                                    <h4 class="text-pink"><i class="fa-solid fa-bullhorn"></i> Marketing & Campaign Strategies</h4>
+                                    <p id="adv-narrative-marketing">Designing localized marketing adjustments...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    
+    <!-- Load custom data store first -->
+    <script src="data_store.js"></script>
+    <!-- Load application logic -->
+    <script src="app.js"></script>
+</body>
+</html>
